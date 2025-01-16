@@ -1,5 +1,4 @@
 # FooBar-csci106-semester
 CSCI106 semester project
-REAAAAAAAAAAAD ME
 
-BOOOOOOOOOOOOOOOBS
+This is trying to test the branch features
