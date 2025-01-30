@@ -9,7 +9,7 @@ public class SvgBuilder
     private readonly int Width;
     private readonly int Height;
 
-    private string Buffer;
+    public string Buffer{get; private set;}
 
     public SvgBuilder(int width, int height)
     {
@@ -25,9 +25,7 @@ public class SvgBuilder
 
     public SvgBuilder AddRectangle(int x, int y, int width, int height, string color)
     {
-        // Replace this line with your code
-        throw new NotImplementedException();
-
+        Buffer += string.Format(RECT_TEMPLATE, x, y, width, height, color);
         // Don't remove this!
         return this;
     }
