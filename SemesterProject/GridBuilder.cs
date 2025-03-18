@@ -1,3 +1,7 @@
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
+
 namespace SemesterProject;
 
 public interface IGridBuilder
@@ -37,7 +41,15 @@ public class GridBuilder : IGridBuilder
 
     public void Parse(string line)
     {
-        // Replace this line with your code!
-        throw new NotImplementedException();
+        var match = new Regex("\\((?<X>\\d+),\\s*(?<Y>\\d+)\\)\\s*\\B(?<Hex>#[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\\b").Match(line);
+        var x = match.Groups["X"];
+        int X1 = int.Parse(x.Value);
+        var y = match.Groups["Y"];
+        int Y1 = int.Parse(y.Value);
+        var hex = match.Groups["Hex"].ToString();
+        SvgBuilder.AddRectangle(X1*GridSize, Y1*GridSize, GridSize, GridSize, hex);
+
+
+
     }
 }
